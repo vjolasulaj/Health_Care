@@ -31,8 +31,8 @@ public class UserController {
         }
 
         try {
-            var u = userService.getUserById(id);
-            return new Response<>(u, null, HttpStatus.OK);
+            var user = userService.getUserById(id);
+            return new Response<>(user, null, HttpStatus.OK);
         } catch (Exception e) {
             return new Response<>(null, List.of(e.getMessage()), HttpStatus.NOT_FOUND);
         }
