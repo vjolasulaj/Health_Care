@@ -53,8 +53,8 @@ public class AuthController {
     @GetMapping("/me")
     public Response<User> me(@AuthenticationPrincipal User user) {
         try {
-            var u = userService.getUserByEmail(user.getEmail());
-            return new Response<User>(u, null, HttpStatus.OK);
+            var user = userService.getUserByEmail(user.getEmail());
+            return new Response<User>(user, null, HttpStatus.OK);
         } catch (Exception e) {
             return new Response<User>(null, List.of(e.getMessage()), HttpStatus.NOT_FOUND);
         }
