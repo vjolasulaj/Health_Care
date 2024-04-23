@@ -16,8 +16,8 @@ public class DoctorManager {
     private DoctorRepository doctorRepository;
 
     public Doctor findById(Long id) {
-        var u = userRepository.findById(id).orElseThrow();
-        var d = doctorRepository.findById(id).orElseThrow();
+        var user = userRepository.findById(id).orElseThrow();
+        var doctor = doctorRepository.findById(id).orElseThrow();
         return Doctor.builder()
                 .id(u.getId())
                 .firstName(u.getFirstName())
